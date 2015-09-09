@@ -1,0 +1,45 @@
+# Settings:
+# de.lmu.ifi.dbs.elki.workflow.InputStep
+# -db StaticArrayDatabase
+# 
+# de.lmu.ifi.dbs.elki.database.StaticArrayDatabase
+# -dbc FileBasedDatabaseConnection
+# 
+# de.lmu.ifi.dbs.elki.datasource.FileBasedDatabaseConnection
+# -dbc.in /home/vagrant/projects/unsupervised_anomaly_detection_research_sod_vs_one_class_svm/kddcup99/kddcup_for_elki_10000.csv
+# -dbc.parser NumberVectorLabelParser
+# 
+# de.lmu.ifi.dbs.elki.datasource.parser.NumberVectorLabelParser
+# -parser.colsep \s*[,;\s]\s*
+# -parser.quote "'
+# -string.comment ^\s*(#|//|;).*$
+# -parser.labelIndices [unset]
+# -parser.vector-type DoubleVector
+# 
+# de.lmu.ifi.dbs.elki.datasource.FileBasedDatabaseConnection
+# -dbc.filter [unset]
+# 
+# de.lmu.ifi.dbs.elki.database.StaticArrayDatabase
+# -db.index [unset]
+# 
+# de.lmu.ifi.dbs.elki.workflow.AlgorithmStep
+# -time false
+# -algorithm outlier.subspace.SOD
+# 
+# de.lmu.ifi.dbs.elki.algorithm.outlier.subspace.SOD
+# -sod.similarity SharedNearestNeighborSimilarityFunction
+# 
+# de.lmu.ifi.dbs.elki.distance.similarityfunction.SharedNearestNeighborSimilarityFunction
+# -similarityfunction.preprocessor SharedNearestNeighborPreprocessor
+# 
+# de.lmu.ifi.dbs.elki.index.preprocessed.snn.SharedNearestNeighborPreprocessor$Factory
+# -sharedNearestNeighbors 100
+# -SNNDistanceFunction minkowski.EuclideanDistanceFunction
+# 
+# de.lmu.ifi.dbs.elki.algorithm.outlier.subspace.SOD
+# -sod.knn 200
+# -sod.alpha 1.1
+# -sod.models false
+# 
+# de.lmu.ifi.dbs.elki.workflow.EvaluationStep
+# -evaluator AutomaticEvaluation

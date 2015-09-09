@@ -1,0 +1,5 @@
+# Evaluation measures
+ROC AUC 0.3394985
+Average Precision 0.19950939946305385
+R-Precision 0.3125
+Maximum F1 0.4099173553719009
